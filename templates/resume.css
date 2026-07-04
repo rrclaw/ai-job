@@ -1,0 +1,54 @@
+/* Resume print stylesheet. A4, single column, no photo. */
+@page { size: A4; margin: 14mm 16mm; }
+
+body {
+  font-family: "Songti SC", "SimSun", "Times New Roman", serif;
+  font-size: 11pt;
+  line-height: 1.58;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+h1 {
+  font-size: 17pt;
+  text-align: center;
+  margin: 0 0 2pt;
+  letter-spacing: 1px;
+}
+
+/* contact + portfolio line sits right under the name */
+h1 + p, h1 + p + p {
+  text-align: center;
+  font-size: 9.5pt;
+  margin: 0 0 2pt;
+  color: #333;
+}
+
+h2 {
+  font-size: 12pt;
+  border-bottom: 1.2px solid #1a1a1a;
+  padding-bottom: 2pt;
+  margin: 13pt 0 5pt;
+}
+
+h3 {
+  font-size: 11pt;
+  margin: 8pt 0 3pt;
+}
+
+/* right-aligned date via markdown:  ### 公司 · 职位 <span class="date">2021.04 - 至今</span> */
+h3 .date { float: right; font-weight: normal; font-size: 9.5pt; color: #444; }
+
+p { margin: 2pt 0; }
+
+ul { margin: 2pt 0 5pt; padding-left: 14pt; }
+li { margin: 3pt 0; }
+
+a { color: #1a4d8f; text-decoration: none; }
+
+strong { font-weight: 600; }
+
+hr { border: none; border-top: 0.5px solid #bbb; margin: 6pt 0; }
+
+/* English variant: swap serif for clean sans if <body> gets .en via inline style */
+body.en { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 10pt; }

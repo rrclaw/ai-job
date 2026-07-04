@@ -1,0 +1,8 @@
+# 个人候选人数据永不入库
+candidates/*
+!candidates/example/
+!candidates/README.md
+*.pdf
+*.docx
+.DS_Store
+__pycache__/
