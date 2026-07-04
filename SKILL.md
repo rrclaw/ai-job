@@ -2,8 +2,9 @@
 name: ai-job
 description: >
   AI 时代求职闭环 skill：从头部 AI 公司人才观出发，走「JD 解析 → 素材挖掘 → 定位叙事 →
-  简历生成（中英）→ 批判审阅（多 agent 对抗 + 代码闸）→ 面试准备 → 投递复盘」七阶段闭环。
-  当用户说"改简历 / 写简历 / 投递 XX 公司 / 求职 / 面试准备 / ai-job"时使用。
+  简历生成（中英）→ 批判审阅（多 agent 对抗 + 代码闸）→ 面试准备 → 投递执行（邮箱全自动/
+  门户半自动/直聊辅助）→ 跟踪复盘」八阶段闭环。
+  当用户说"改简历 / 写简历 / 投递 XX 公司 / 求职 / 面试准备 / 自动投递 / ai-job"时使用。
 ---
 
 # ai-job：AI 时代求职闭环
@@ -20,7 +21,7 @@ description: >
 3. **人味 > 完美。** AI 初筛之后是人终审。过度打磨的通用话术（中文「赋能/深耕/助力」，
    英文 spearheaded/passionate 滥用）是减分项。规则见 `references/anti-ai-flavor.md`。
 
-## 七阶段闭环
+## 八阶段闭环
 
 每个候选人一个目录：`candidates/<name>/`（**默认 gitignore，个人数据永不入公开库**）。
 
@@ -81,7 +82,14 @@ description: >
 - 岗位题库（从 JD 职责反推面试问题）+ 认知题（该公司创始人/高管公开观点的应对）
 - 反问清单（体现 agency 的问题，不问福利）+ 90 秒自我介绍稿（中英）
 
-### ⑦ 投递跟踪与复盘
+### ⑦ 投递执行（自动化分级，详见 references/apply-channels.md）
+- 产出 `candidates/<name>/apply_plan.md`：目标公司 × 渠道 × 简历版本 × 主题行的作战单，按审阅阶段的匹配分排优先级
+- **A 档 邮箱直投**：自动生成邮件（公司要求的主题格式 + 三句话正文 + 简历 PDF 附件）→ 建草稿 → 候选人过目点发送。全流程唯一留给人的动作是最后一次点击
+- **B 档 官方门户**（Moka/飞书招聘/北森）：browser automation 填表，候选人只做验证码登录和最终提交
+- **C 档 直聊平台**（Boss/猎聘）：只生成 mini 简历开场白，人工粘贴。禁自动打招呼（封号 + 模板痕迹被 HR 侧 AI 识别）
+- 铁律：精准投递禁海投、投前 30 分钟内重验作品集链接、同公司多岗位间隔 ≥48h、投完立刻回填 tracker
+
+### ⑧ 跟踪与复盘
 - `candidates/<name>/tracker.md`：投递日期 / 渠道 / 版本 / 状态 / 反馈
 - 每次拒信或面试反馈回填 evidence 和 positioning，迭代下一版。闭环在这里闭上。
 
@@ -95,6 +103,7 @@ ai-job/
     methodology.md            # STAR/PAR/XYZ、量化 bullet、中英差异
     ats-and-ai-screening.md   # ATS/AI 筛选机制与格式规范
     anti-ai-flavor.md         # 反 AI 味文风清单
+    apply-channels.md         # 投递通道手册（邮箱/门户/直聊三档自动化分级）
   templates/
     resume_cn.md  resume_en.md  resume.css
   scripts/
